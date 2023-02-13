@@ -10,7 +10,7 @@ class Skill(models.Model):
     title = models.CharField(_("title"), max_length=120)
 
 
-class Job(models.Model):
+class Job(models.Model, DirtyFieldsMixin):
     company = models.ForeignKey(
         "companies.Company", on_delete=models.PROTECT, related_name="employees_job"
     )
